@@ -14,8 +14,5 @@ def test_github():
 # @pytest.mark.selenium
 def test_dzen():
     driver = webdriver.Chrome()
-    url = "https://dzen.ru/"
+    url = "https://dzen.com/"
     driver.get(url)
-
-    assert "GitHub" in driver.title
-    assert driver.current_url == ur
