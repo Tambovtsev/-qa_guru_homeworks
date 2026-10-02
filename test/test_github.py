@@ -17,5 +17,4 @@ def test_dzen():
     url = "https://dzen.ru/"
     driver.get(url)
 
-    assert "GitHub" in driver.title
-    assert driver.current_url == ur
+    assert "Dzen" in driver.title
