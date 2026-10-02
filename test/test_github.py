@@ -16,3 +16,6 @@ def test_dzen():
     driver = webdriver.Chrome()
     url = "https://dzen.com/"
     driver.get(url)
+
+    assert "DZEN" in driver.title
+    assert driver.current_url == url
