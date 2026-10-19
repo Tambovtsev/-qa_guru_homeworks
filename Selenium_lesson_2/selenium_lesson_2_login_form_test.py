@@ -86,3 +86,22 @@ class TestLoginForm:
         self.login_button()
 
         assert self.error_message_text() == expected
+
+    @pytest.mark.parametrize("login, password, expected", [
+        ("123456@fj.com", "svdvvavsvavraevradvsdvdvaevqevaevqevaevevraevae42424r2323232323",
+         "Wrong login or password")]) # тест с длинным паролем
+    def test_negativ_2(self, login, password, expected):
+        self.field_login(login)
+        self.field_password(password)
+        self.login_button()
+        assert self.error_message_text() == expected
+
+
+    @pytest.mark.parametrize("login, password, expected", [
+        ("22", "4r2323232323",
+         "Login must be at least 3 characters")])  # тест на короткий пароль
+    def test_negativ_3(self, login, password, expected):
+        self.field_login(login)
+        self.field_password(password)
+        self.login_button()
+        assert self.error_message_text() == expected
